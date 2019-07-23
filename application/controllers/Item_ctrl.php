@@ -20,6 +20,8 @@ class Item_ctrl extends CI_Controller
 	{
 		$this->Item_mdl->store();
 
+		$this->session->set_flashdata('create','Your data is added.');
+
 		redirect('item','refresh');
 
 	}
@@ -29,6 +31,8 @@ class Item_ctrl extends CI_Controller
 		$id = $this->uri->segment(3);
 		
 		$this->Item_mdl->delete($id);
+
+		$this->session->set_flashdata('delete','Your data is added.');
 
 		redirect('item','refresh');	
 	}
@@ -50,7 +54,7 @@ class Item_ctrl extends CI_Controller
 	{
 		$this->Item_mdl->update();
 
-		$this->session->set_flashdata('success','Your data is updated.');
+		$this->session->set_flashdata('edit','Your data is updated.');
 
 		redirect('item','refresh');
 	}

@@ -16,6 +16,44 @@
 <div class="row">
   <!-- column -->
   <div class="col-12">
+
+    <?php if ($this->session->flashdata('create')) : ?>
+
+      <div class="alertmessage alert alert-success alert-dismissible fade show" role="alert">
+        <strong> SUCCESS! </strong>
+        <?php echo $this->session->flashdata('create'); ?>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+    <?php endif; ?>
+
+    <?php if ($this->session->flashdata('edit')) : ?>
+
+      <div class="alertmessage alert alert-warning alert-dismissible fade show" role="alert">
+        <strong> SUCCESS! </strong>
+        <?php echo $this->session->flashdata('edit'); ?>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+    <?php endif; ?>
+
+    <?php if ($this->session->flashdata('delete')) : ?>
+
+      <div class="alertmessage alert alert-danger alert-dismissible fade show" role="alert">
+        <strong> SUCCESS! </strong>
+        <?php echo $this->session->flashdata('delete'); ?>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+    <?php endif; ?>
+
+
       <div class="card">
           <div class="card-body">
               <div class="table-responsive">
