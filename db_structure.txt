@@ -1,0 +1,44 @@
+Mini Market
+------------
+items
+	->	items_id
+	->	items_name
+	->	items_price
+	->	items_categoryid
+	->	items_description
+	->	items_photo
+
+categories
+	->	categories_id
+	->	categories_name
+	->	categories_photo
+
+users
+	->	users_id
+	->	users_name
+	->	users_phoneno
+	->	users_address
+	->	users_email
+	->	users_password
+	->	users_photo
+
+orders
+	->	orders_id
+	->	orders_date
+	->	orders_total
+	->	orders_ordersdetailid
+
+
+orderdetails
+	->	orderdetails_id
+	->	orderdetails_userid
+	->	orderdetails_itemid
+	->	orderdetails_qty
+
+
+
+
+
+
+
+	
