@@ -70,7 +70,8 @@ $route['item'] = 'Item_ctrl/index';
 $route['item/create'] = 'Item_ctrl/create';
 $route['item/store'] = 'Item_ctrl/store';
 $route['item/delete/:num'] = 'Item_ctrl/delete';
-
+$route['item/edit/:num'] = 'Item_ctrl/edit';
+$route['item/update'] = 'Item_ctrl/update';
 
 
 

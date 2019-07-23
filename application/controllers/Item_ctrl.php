@@ -34,9 +34,26 @@ class Item_ctrl extends CI_Controller
 	}
 
 
+	public function edit()
+	{
+		$id = $this->uri->segment(3);
+		
+		$data['item'] = $this->Item_mdl->edit($id);
+
+		$data['categories'] = $this->Category_mdl->read();
+		$data['innerdata'] = 'item_edit';
+		$this->load->view('backend_template',$data);
+	}
 
 
+	public function update()
+	{
+		$this->Item_mdl->update();
 
+		$this->session->set_flashdata('success','Your data is updated.');
+
+		redirect('item','refresh');
+	}
 
 
 

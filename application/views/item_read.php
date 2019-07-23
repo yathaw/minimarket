@@ -58,12 +58,12 @@
                               Detail
                             </a>
 
-                            <a href="" class="btn btn-outline-warning">
+                            <a href="<?php echo base_url('item/edit/'.$id) ?>" class="btn btn-outline-warning">
                               <i class="fa fa-edit"></i>
                               Edit
                             </a>
                             
-                            <a href="<?php echo base_url('category/delete/'.$id) ?>" class="btn btn-outline-danger">
+                            <a href="<?php echo base_url('item/delete/'.$id) ?>" class="btn btn-outline-danger">
                               <i class="fa fa-trash"></i>
                               Delete
                             </a>

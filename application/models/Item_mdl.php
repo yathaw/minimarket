@@ -16,7 +16,7 @@ class Item_mdl extends CI_Model
 	{
 		$name = $this->input->post('name');
 		$categoryid = $this->input->post('categoryname');
-		$image = $this->Category_mdl->upload_img('photo');
+		$image = $this->Item_mdl->upload_img('photo');
 		$price = $this->input->post('price');
 		$description = $this->input->post('description');
 
@@ -70,7 +70,51 @@ class Item_mdl extends CI_Model
 	}
 
 
+	public function edit($id)
+	{
+		$this->db->select('*');
+		$this->db->from('items');
+		$this->db->where('items_id', $id);
+		$sql = $this->db->get();
 
+		return $sql->row_array();
+	}
+
+
+	public function update()
+	{
+		# oldPhoto...
+		if ($_FILES['newPhoto']['name'] == NULL) 
+		{
+			$image = $this->input->post('oldPhoto');
+		}
+
+		#newPhoto
+		else
+		{
+			$image = $this->Item_mdl->upload_img('newPhoto');
+		}
+
+		$id = $this->input->post('id');
+		$name = $this->input->post('name');
+		$categoryid = $this->input->post('categoryname');
+		$price = $this->input->post('price');
+		$description = $this->input->post('description');
+
+		$data = array(
+			'items_name'		=>	$name,
+			'items_price'		=>	$price,
+			'items_description'	=>	$description,
+			'items_photo'		=>	$image,
+			'items_categoriesid'=>	$categoryid
+		);
+
+		$this->db->where('items_id',$id);
+		$result = $this->db->update('items',$data);
+
+		return $result;
+
+	}
 
 
 
