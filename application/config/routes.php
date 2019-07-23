@@ -85,6 +85,23 @@ $route['frontend/category'] = 'Frontend_ctrl/category';
 $route['frontend/item'] = 'Frontend_ctrl/item';
 
 
+//Authentication
+// Register Form
+$route['register'] = 'Auth_ctrl/register';
+
+
+// Register Process
+$route['check'] = 'Auth_ctrl/check';
+
+
+// Login Form
+$route['login'] = 'Auth_ctrl';
+
+// Login Process
+$route['authentication'] = 'Auth_ctrl/authentication';
+
+$route['logout'] = 'Auth_ctrl/logout';
+
 
 
 

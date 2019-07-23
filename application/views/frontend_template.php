@@ -13,9 +13,22 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>template/frontend/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>template/frontend/plugins/OwlCarousel2-2.2.1/animate.css">
 
+<?php if($this->uri->segment(1)==""){?>
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>template/frontend/styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>template/frontend/styles/responsive.css">
+<?php } ?>
+
+
+<?php if($this->uri->segment(1)=="register" || $this->uri->segment(1)=="login" || $this->uri->segment(1)=="check"){?>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>template/frontend/styles/checkout.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>template/frontend/styles/checkout_responsive.css">
+<?php } ?>
+
+<?php if($this->uri->segment(2)=="category" || $this->uri->segment(2)=="item"){?>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>template/frontend/styles/categories.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>template/frontend/styles/categories_responsive.css">
+<?php } ?>
 
 </head>
 <body>
@@ -214,18 +227,22 @@
 
 			<div class="home" style="height: 332px;">
 		
-				<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="<?php echo base_url() ?>template/frontend/images/product_background.jpg" data-speed="0.8"></div>
+				<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="<?php echo base_url() ?>template/frontend/images/product_banner.jpg" data-speed="0.8"></div>
 				<div class="home_container">
 					<div class="home_content">
-						<div class="home_title">Shop</div>
-						<div class="breadcrumbs">
-							<ul class="d-flex flex-row align-items-center justify-content-start">
-								<li><a href="index.html">Home</a></li>
-								<li><a href="categories.html">Woman</a></li>
-								<li><a href="categories.html">Accessories</a></li>
-								<li>Shoulder Bag</li>
-							</ul>
+						<div class="home_title text-success">
+							<?php 
+								if($this->uri->segment(1) == 'login')
+								{
+									echo "Login";
+								}
+								elseif ($this->uri->segment(1) == 'register') 
+								{
+									echo "Register";
+								}
+							?>
 						</div>
+						
 					</div>
 				</div>
 			</div>

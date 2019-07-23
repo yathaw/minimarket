@@ -1,34 +1,42 @@
-<div class="boxes mb-5">
+<div class="products mb-5">
 	<div class="section_container">
 		<div class="container">
 			<div class="row">
+				<div class="col">
+					<div class="products_container grid">
 
-				<?php 
-                  	foreach ($categories as $category):
+						<?php 
+		                  	foreach ($categories as $category):
 
-                  	$id = $category->categories_id;
-                  	$name = $category->categories_name;
-                  	$photo = $category->categories_photo;
+		                  	$id = $category->categories_id;
+		                  	$name = $category->categories_name;
+		                  	$photo = $category->categories_photo;
 
-                ?>
-				
-				<!-- Box -->
-				<div class="col-lg-4 box_col">
-					<div class="box m-4">
-						<div class="box_image text-center" style="background-color: #a5a5a5;">
-							<img src="<?= $photo ?>" alt="" class="img-fluid p-3" style="width: 100px; height: 100px;">
+		                ?>
+						
+						<!-- Product -->
+						<div class="product grid-item">
+							<div class="product_inner">
+								<a href=""> 
+								<div class="product_image text-center p-5">
+									
+										<img src="<?php echo $photo ?>" alt="" style="width: 100px; height: 100px;">
+										
+										<p style="font-size: 24px; font-weight: 700; color: #414141; margin-top: 13px;">
+											<?= $name; ?>
+										</p>
+
+								</div>
+									</a>
+								
+								
+							</div>	
 						</div>
-						<div class="box_title trans_200">
-							<a href="categories.html">
-								<?= $name; ?>
-							</a>
-						</div>
+
+						<?php endforeach; ?>
+
 					</div>
 				</div>
-
-				<?php endforeach; ?>
-
-
 			</div>
 		</div>
 	</div>
