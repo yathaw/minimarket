@@ -62,8 +62,46 @@ class Category_mdl extends CI_Model
 		return $result;
 	}
 
+	public function edit($id)
+	{
+		$this->db->select('*');
+		$this->db->from('categories');
+		$this->db->where('categories_id', $id);
+		$sql = $this->db->get();
+
+		return $sql->row_array();
+	}
 
 
+	public function update()
+	{
+		# oldPhoto...
+		if ($_FILES['newPhoto']['name'] == NULL) 
+		{
+			$image = $this->input->post('oldPhoto');
+		}
+
+		#newPhoto
+		else
+		{
+			$image = $this->Category_mdl->upload_img('newPhoto');
+		}
+
+		$id = $this->input->post('id');
+		$name = $this->input->post('name');
+		
+
+		$data = array(
+			'categories_name'	=>	$name,
+			'categories_photo'	=>	$image
+		);
+
+		$this->db->where('categories_id',$id);
+		$result = $this->db->update('categories',$data);
+
+		return $result;
+
+	}
 
 
 

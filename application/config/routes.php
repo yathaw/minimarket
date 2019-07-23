@@ -62,6 +62,7 @@ $route['category/create'] = 'Category_ctrl/create';
 $route['category/store'] = 'Category_ctrl/store';
 $route['category/delete/:num'] = 'Category_ctrl/delete';
 $route['category/edit/:num'] ='Category_ctrl/edit';
+$route['category/update'] = 'Category_ctrl/update';
 
 
 // Item
