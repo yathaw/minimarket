@@ -80,26 +80,22 @@ $route['item/update'] = 'Item_ctrl/update';
 
 // Category
 $route['frontend/category'] = 'Frontend_ctrl/category';
+$route['frontend/category/item/:num'] = 'Frontend_ctrl/category_product';
 
 // Item
 $route['frontend/item'] = 'Frontend_ctrl/item';
 
+// Order
+$route['frontend/cart'] = 'Frontend_ctrl/cart';
+$route['frontend/order'] = 'Frontend_ctrl/order';
+
+
 
 //Authentication
-// Register Form
 $route['register'] = 'Auth_ctrl/register';
-
-
-// Register Process
 $route['check'] = 'Auth_ctrl/check';
-
-
-// Login Form
 $route['login'] = 'Auth_ctrl';
-
-// Login Process
 $route['authentication'] = 'Auth_ctrl/authentication';
-
 $route['logout'] = 'Auth_ctrl/logout';
 
 

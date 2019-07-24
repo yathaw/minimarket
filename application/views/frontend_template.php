@@ -30,6 +30,12 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>template/frontend/styles/categories_responsive.css">
 <?php } ?>
 
+<?php if($this->uri->segment(2)=="cart"){?>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>template/frontend/styles/cart.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>template/frontend/styles/cart_responsive.css">
+<?php } ?>
+
+
 </head>
 <body>
 
@@ -69,7 +75,7 @@
 				<div class="cart d-flex flex-row align-items-center justify-content-start">
 					<div class="cart_icon"><a href="cart.html">
 						<img src="<?php echo base_url() ?>template/frontend/images/bag.png" alt="">
-						<div class="cart_num">2</div>
+						<div class="cart_num"></div>
 					</a></div>
 				</div>
 
@@ -147,9 +153,9 @@
 
 		<!-- Cart -->
 		<div class="cart d-flex flex-row align-items-center justify-content-start">
-			<div class="cart_icon"><a href="cart.html">
+			<div class="cart_icon"><a href="<?= base_url('frontend/cart') ?>">
 				<img src="<?php echo base_url() ?>template/frontend/images/bag.png" alt="">
-				<div class="cart_num">2</div>
+				<div class="cart_num"></div>
 			</a></div>
 			<div class="cart_text">bag</div>
 			<div class="cart_price">$39.99 (1)</div>
@@ -294,5 +300,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="<?php echo base_url() ?>template/frontend/plugins/Isotope/isotope.pkgd.min.js"></script>
 <script src="<?php echo base_url() ?>template/frontend/plugins/Isotope/fitcolumns.js"></script>
 <script src="<?php echo base_url() ?>template/frontend/js/custom.js"></script>
+
+<script src="<?php echo base_url() ?>template/frontend/js/shoppingcart.js"></script>
 </body>
 </html>

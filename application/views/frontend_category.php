@@ -17,7 +17,7 @@
 						<!-- Product -->
 						<div class="product grid-item">
 							<div class="product_inner">
-								<a href=""> 
+								<a href="<?= base_url('frontend/category/item/'.$id) ?>"> 
 								<div class="product_image text-center p-5">
 									
 										<img src="<?php echo $photo ?>" alt="" style="width: 100px; height: 100px;">
