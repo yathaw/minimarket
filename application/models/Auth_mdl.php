@@ -4,6 +4,23 @@
  */
 class Auth_mdl extends CI_Model
 {
+
+	public function login()
+	{
+		$email = $this->input->post('email');
+		$password = $this->input->post('password');
+
+		$this->db->select('*');
+		$this->db->from('users');
+		$this->db->where('users_email', $email);
+		$this->db->where('users_password', SHA1($password));
+		$sql= $this->db->get();
+
+		return $sql->row_array();
+	}
+
+
+
 	
 	public function register()
 	{
@@ -20,7 +37,8 @@ class Auth_mdl extends CI_Model
 			'users_address'		=>	$address,
 			'users_email'		=>	$email,
 			'users_password'	=>	SHA1($password),
-			'users_photo'		=>	$photo 
+			'users_photo'		=>	$photo,
+			'role'				=>	'member' 
 		);
 
 		$result = $this->db->insert('users',$data);
@@ -54,5 +72,8 @@ class Auth_mdl extends CI_Model
 
 		return $imagefile;
 	}
+
+
+
 }
 ?>

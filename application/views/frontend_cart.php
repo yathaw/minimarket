@@ -41,7 +41,7 @@
 		</div>
 	</div>
 
-	<div class="section_container cart_extra_container">
+	<div class="section_container cart_extra_container checkout_div">
 		<div class="container">
 			<div class="row">
 
@@ -64,7 +64,7 @@
 									<div class="cart_extra_total_value ml-auto total"></div>
 								</li>
 							</ul>
-							<div class="checkout_button trans_200"><a href="checkout.html">proceed to checkout</a></div>
+							<div class="checkout_button trans_200"><a href="javascript:void(0)">proceed to checkout</a></div>
 						</div>
 					</div>
 				</div>

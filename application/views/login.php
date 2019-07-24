@@ -6,12 +6,24 @@
 			<div class="row">
 				<div class="col">
 					<div class="checkout_container d-flex flex-xxl-row flex-column align-items-start justify-content-start">
+
+						<?php if (isset($error_message)) : ?>
+
+					    	<div class="alertmessage alert alert-danger alert-dismissible fade show" role="alert">
+					        	<strong> Try Again! </strong>
+					        	<?php echo $error_message ?>
+					        	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					          		<span aria-hidden="true">&times;</span>
+					        	</button>
+					      	</div>
+					      
+					    <?php endif; ?>
 						
 						<!-- Billing -->
 						<div class="billing checkout_box">
 							<div class="checkout_title"> Login </div>
 							<div class="checkout_form_container">
-								<form action="#" id="checkout_form" class="checkout_form">
+								<form action="<?php echo base_url('authentication') ?>" method="POST"  id="checkout_form" class="checkout_form">
 
 									<div>
 										<!-- Email -->
@@ -34,7 +46,7 @@
 
 									</div>
 
-									<div class="checkout_button trans_200"><a href="checkout.html"> Register </a></div>
+									<button type="submit" class="checkout_button trans_200"> Login </button>
 
 
 

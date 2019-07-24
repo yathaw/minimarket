@@ -89,6 +89,8 @@ $route['frontend/item'] = 'Frontend_ctrl/item';
 $route['frontend/cart'] = 'Frontend_ctrl/cart';
 $route['frontend/order'] = 'Frontend_ctrl/order';
 
+// Add To Cart
+$route['addtocart'] = 'Order_ctrl/addtocart';
 
 
 //Authentication

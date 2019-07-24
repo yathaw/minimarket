@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <base href="<?php echo base_url(); ?>"/>
+<script> var base_url='<?php echo base_url(); ?>' </script>
 <title>aStar</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +21,7 @@
 <?php } ?>
 
 
-<?php if($this->uri->segment(1)=="register" || $this->uri->segment(1)=="login" || $this->uri->segment(1)=="check"){?>
+<?php if($this->uri->segment(1)=="register" || $this->uri->segment(1)=="login" || $this->uri->segment(1)=="check" || $this->uri->segment(1)=="authentication"){?>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>template/frontend/styles/checkout.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>template/frontend/styles/checkout_responsive.css">
 <?php } ?>

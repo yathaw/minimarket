@@ -1,6 +1,38 @@
 <?php 
 class Category_ctrl extends CI_Controller
 {
+
+	function __construct()
+	{
+		parent:: __construct();
+
+		$session = $this->session->userdata('login_data');
+
+		if ($session) 
+		{
+			# CRUD
+			if ($role = $session['role'] == 'admin') 
+			{
+				$this->router->fetch_class();
+			}
+			else
+			{
+				$this->load->library('user_agent');
+				if ($this->agent->is_referral())
+				{
+				    echo $this->agent->referrer();
+				}
+			}
+
+		}
+		else
+		{
+			// login Form
+			redirect('login','refresh');
+		}
+	}
+
+
 	public function index()
 	{
 		$data['categories'] = $this->Category_mdl->read();

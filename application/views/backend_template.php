@@ -143,6 +143,10 @@
                           <a class="waves-effect waves-dark" href="<?php echo base_url('type')?>" aria-expanded="false"><i class="fas fa-sitemap"></i><span class="hide-menu"></span> Type </a>
                         </li>
 
+                        <li> 
+                          <a class="waves-effect waves-dark" href="<?php echo base_url('logout')?>" aria-expanded="false"><i class="fas fa-power-off"></i><span class="hide-menu"></span> Logout </a>
+                        </li>
+
                         
                         
                     </ul>

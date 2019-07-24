@@ -78,6 +78,7 @@ $(document).ready(function()
 
 			var mytable ='';
 			var j=1;
+			var carttotal=0; var subtotal=0;
 
 
 
@@ -94,7 +95,7 @@ $(document).ready(function()
 					var genre = v.genre;
 					var qty = v.qty;
 
-					var subtotal = parseInt(price) * parseInt(qty);
+					subtotal = price * qty;
 
 					mytable +='<ul class="cart_items_list">'+
 								'<li class="cart_item item_list d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">'+
@@ -120,18 +121,21 @@ $(document).ready(function()
 									'</div>'+
 									'<div class="product_total text-lg-center product_text">'+
 										'<span>Total: </span>'+subtotal+
-										'<button class="btn btn-default float-right delete_btn" data-id="'+id+'"> <i class="fa fa-times text-danger"> </i> </button>'+
+										'<button class="btn btn-default float-right delete_btn" data-id="'+i+'"> <i class="fa fa-times text-danger"> </i> </button>'+
 									'</div>'+
 								'</li>'+
 							'</ul>';
 
 					j++;
+					carttotal += subtotal;
 
-					total += subtotal++;
+
 
 				}
 
 			});
+
+			total = carttotal;
 
 			$(".subtotal").text(total);
 			$(".total").text(total);
@@ -197,38 +201,69 @@ $(document).ready(function()
 		
     });
 
+	// Remove
 	$('.shoppingcart_item').on('click','.delete_btn',function()
 	{
 		var id = $(this).data('id');
         var ans=confirm('Are you sure?');
         if (ans) 
         {
-        	//var id=$(this).data('id');
+        	console.log(id);
           	var cart=localStorage.getItem('cart');
           	var mycartobj=JSON.parse(cart);
           	console.log(id);
           	var mycart = mycartobj.mycart;
-          	// console.log(mycartobj.mycart);
+          	console.log(mycartobj.mycart);
 
 
-          	$.each(mycart,function (i,v) 
-			{
-				if (v.id == id) 
-				{
-					var data = mycart[i];
-					console.log(mycart[i]);
-					data.splice(id,1);
-				}
-			})
-			console.log(mycartobj.mycart);
-
-          	// mycartobj.mycart.splice(id,1);
+          	mycartobj.mycart.splice(id,1);
           	localStorage.setItem('cart',JSON.stringify(mycartobj));
-          	// console.log(mycartobj.mycart);
+          	console.log(mycartobj.mycart);
           	cartnoti();
           	showtable();
         }
     });
+
+
+	// Checkout
+	$('.checkout_button').click(function(event) 
+	{
+		var localstorageitem=localStorage.getItem('cart');
+        var cart=JSON.parse(localstorageitem);
+
+        var url = base_url;
+
+        $.ajax({
+        	type: 'POST',
+        	url: url+'addtocart',
+        	data: {cart:cart, total:total },
+        	success:function(data)
+        	{
+        		localStorage.clear();
+        		window.location.href=url;
+        	}
+        });
+         
+	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
